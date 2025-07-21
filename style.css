@@ -22,7 +22,7 @@ header{
   font-size: 30px;
 }
 
-.nav-bar ul{
+.nav-bar .menu{
   color: aliceblue;
   display: flex;
   gap: 2vh;
@@ -422,4 +422,107 @@ background-color: #14102414;
   font-size: 16px;
   color: aliceblue;
   opacity: 0.8;
+}
+
+
+/* бургер меню */
+.burger{
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+  z-index: 3;
+  border-radius: 5px ;
+
+
+}
+
+.burger span{
+  width: 30px;
+  height: 5px;
+  background-color: rgb(0, 0, 0);
+  border-radius:10px ;
+  
+}
+.burger::before{
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: rgb(0, 0, 0);
+  border-radius:10px ;
+  margin: 5px;
+  transition: 0.3s ease;
+  
+}
+.burger::after{
+  content: '';
+  width: 30px;
+  height: 5px;
+  background-color: rgb(0, 0, 0);
+  border-radius:10px ;
+  margin: 5px; 
+  transition: 0.3s ease;
+}
+
+/* активный класс */
+.burger.active::before{
+  transform: rotate(45deg);
+  position: absolute;
+}
+.burger.active::after{
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+
+.burger.active span{
+  transform: rotate(-45deg);
+  display: none;
+  position: absolute;}
+
+
+@media (max-width: 700px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav-bar .menu {
+    display: none;
+  }
+
+  .nav-bar .menu.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #141024;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    z-index: 2;
+    opacity: 1;
+    margin: 0;
+  }
+
+  .menu.open li {
+    color: #fff;
+    font-size: 28px;
+  }
+}
+@media (max-width: 450px){
+  .number{
+    display: none;
+  }
 }
